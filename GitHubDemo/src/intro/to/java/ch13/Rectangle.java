@@ -40,7 +40,7 @@ public class Rectangle extends GeometricObject {
 		return width * height;
 	}
 	
-	public double getPerimeter() {
-		return 2 * (width + height);
-	}
+//	public double getPerimeter() {
+//		return 2 * (width + height);
+//	}
 }
