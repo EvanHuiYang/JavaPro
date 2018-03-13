@@ -2,7 +2,7 @@ package intro.to.java.ch13;
 
 import java.util.Date;
 
-public abstract class GeometricObject {
+public abstract class GeometricObject implements Cloneable {
 	private String color = "white";
 	private boolean filled;
 	private Date dateCreated;
@@ -41,6 +41,11 @@ public abstract class GeometricObject {
 	public String toString() {
 		return "created on " + dateCreated + "\ncolor: " + color
 				+ " and filled: " + filled;
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 	
 	public abstract double getArea();
