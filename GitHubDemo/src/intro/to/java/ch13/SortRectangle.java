@@ -12,6 +12,9 @@ public class SortRectangle {
 		
 		Arrays.sort(rectangles);
 		
+		// compareTo() demo
+		System.out.println(rectangles[0].compareTo(rectangles[1]));
+		
 		for (Rectangle rectangle : rectangles) {
 			System.out.print(rectangle + " ");
 			System.out.println();

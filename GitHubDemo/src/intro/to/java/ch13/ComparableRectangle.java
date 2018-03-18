@@ -21,6 +21,8 @@ public class ComparableRectangle extends Rectangle
 	@Override
 	// Implement the toString method in GeometricObject
 	public String toString() {
-		return super.toString() + " Area: " + getArea();
+		return "Width: " + getWidth() 
+				+ ", Height: " + getHeight()
+				+ ", Area: " + getArea();
 	}
 }
