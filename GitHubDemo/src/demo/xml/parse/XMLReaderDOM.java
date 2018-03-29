@@ -55,8 +55,7 @@ public class XMLReaderDOM {
             
             NodeList nodeList = doc.getElementsByTagName("employee");
             
-            /*
-             * now XML is loaded as Document in memory,
+            /* now XML is loaded as Document in memory,
              * lets convert it to Object List
              */
             List<Employee> empList = new ArrayList<>();
