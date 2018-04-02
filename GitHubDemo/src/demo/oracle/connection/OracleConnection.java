@@ -22,7 +22,7 @@ public class OracleConnection {
 		
 		try {
 			
-			// Two method of loading Oracle JDBC Driver
+			// Two methods of loading Oracle JDBC Driver
 			// Method 1
 			// Class.forName("oracle.jdbc.driver.OracleDriver()");
 			

@@ -12,8 +12,8 @@ public class Circle extends GeometricObject {
 	
 	public Circle(double radius, String color, boolean filled) {
 		this.radius = radius;
-		setColor(color);
-		setFilled(filled);
+		super.setColor(color);
+		super.setFilled(filled);
 	}
 	
 	public double getRadius() {
@@ -38,7 +38,7 @@ public class Circle extends GeometricObject {
 	
 	@Override
 	public String toString() {
-		return "The circle is created " + getDateCreated()
+		return "The circle is created " + super.getDateCreated()
 				+ " and the radius is " + radius;
 	}
 }
