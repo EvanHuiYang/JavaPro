@@ -1,4 +1,6 @@
-package intro.to.java.ch13;
+package intro.to.java.ch13.exercise;
+
+import intro.to.java.ch13.GeometricObject;
 
 public class Triangle extends GeometricObject {
 	private double sideOne;

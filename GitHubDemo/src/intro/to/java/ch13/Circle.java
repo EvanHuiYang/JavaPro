@@ -24,21 +24,24 @@ public class Circle extends GeometricObject {
 		this.radius = radius;
 	}
 	
-	public double getArea() {
-		return radius * radius * Math.PI;
-	}
-	
 	public double getDiameter() {
 		return 2 * radius;
 	}
 	
+	@Override
+	public double getArea() {
+		return radius * radius * Math.PI;
+	}
+	
+	@Override
 	public double getPerimeter() {
 		return 2 * radius * Math.PI;
 	}
 	
 	@Override
 	public String toString() {
-		return "The circle is created " + super.getDateCreated()
-				+ " and the radius is " + radius;
+		return super.toString() + "\nradius: " + radius
+				+ "\narea: " + getArea()
+				+ "\nperimeter: " + getPerimeter();
 	}
 }

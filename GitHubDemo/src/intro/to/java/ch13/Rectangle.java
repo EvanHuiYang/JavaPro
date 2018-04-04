@@ -16,8 +16,8 @@ public class Rectangle extends GeometricObject {
 			String color, boolean filled) {
 		this.width = width;
 		this.height = height;
-		setColor(color);
-		setFilled(filled);
+		super.setColor(color);
+		super.setFilled(filled);
 	}
 	
 	public double getWidth() {
@@ -36,11 +36,21 @@ public class Rectangle extends GeometricObject {
 		this.height = height;
 	}
 	
+	@Override
 	public double getArea() {
 		return width * height;
 	}
 	
+	@Override
 	public double getPerimeter() {
 		return 2 * (width + height);
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "\nWidth: " + width
+				+ "\nHeight: " + height
+				+ "\nArea: " + getArea()
+				+ "\nPerimeter: " + getPerimeter();
 	}
 }

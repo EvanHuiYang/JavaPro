@@ -1,18 +1,18 @@
 package intro.to.java.ch13;
 
-import java.awt.geom.Area;
 import java.util.Date;
 
-public abstract class GeometricObject implements Cloneable {
+public abstract class GeometricObject
+		implements Comparable<GeometricObject>, Cloneable {
 	private String color = "white";
 	private boolean filled;
 	private Date dateCreated;
 	
-	protected GeometricObject() {
+	public GeometricObject() {
 		dateCreated = new Date();
 	}
 	
-	protected GeometricObject(String color, boolean filled) {
+	public GeometricObject(String color, boolean filled) {
 		dateCreated = new Date();
 		this.color = color;
 		this.filled = filled;
@@ -38,14 +38,30 @@ public abstract class GeometricObject implements Cloneable {
 		return dateCreated;
 	}
 	
+	public static GeometricObject max(GeometricObject o1, GeometricObject o2) {
+		return o1.compareTo(o2) == 1 ? o1 : o2;
+	}
+	
 	@Override
 	public String toString() {
-		return "created on " + dateCreated + "\ncolor: " + color
+		return "Created on " + dateCreated
+				+ "\ncolor: " + color
 				+ " and filled: " + filled;
 	}
 	
 	@Override
-	public Object clone() throws CloneNotSupportedException {
+	public int compareTo(GeometricObject o) {
+		if (this.getArea() > o.getArea()) {
+			return 1;
+		} else if (this.getArea() < o.getArea()) {
+			return -1;
+		} else {
+			return 0;
+		}
+	}
+	
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
 	

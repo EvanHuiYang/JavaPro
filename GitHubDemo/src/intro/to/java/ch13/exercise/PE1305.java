@@ -1,6 +1,10 @@
 package intro.to.java.ch13.exercise;
 
-public class TestGeometricObject {
+import intro.to.java.ch13.Circle;
+import intro.to.java.ch13.GeometricObject;
+import intro.to.java.ch13.Rectangle;
+
+public class PE1305 {
 	public static void main(String[] args) {
 		GeometricObject o1 = new Circle(5, "yellow", true);
 		GeometricObject o2 = new Circle(4, "blue", false);

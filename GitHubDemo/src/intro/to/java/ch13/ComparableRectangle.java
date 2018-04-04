@@ -1,28 +1,14 @@
 package intro.to.java.ch13;
 
-public class ComparableRectangle extends Rectangle 
-		implements Comparable<ComparableRectangle> {
+public class ComparableRectangle extends Rectangle {
 	public ComparableRectangle(double width, double height) {
 		super(width, height);
 	}
 	
 	@Override
-	// Implement the compareTo method defined in Comparable
-	public int compareTo(ComparableRectangle o) {
-		if (this.getArea() > o.getArea()) {
-			return 1;
-		} else if (this.getArea() < o.getArea()) {
-			return -1;
-		} else {
-			return 0;
-		}
-	}
-	
-	@Override
-	// Implement the toString method in GeometricObject
 	public String toString() {
-		return "Width: " + getWidth() 
-				+ ", Height: " + getHeight()
-				+ ", Area: " + getArea();
+		return "Width: " + super.getWidth()
+				+ " Height: " + super.getHeight()
+				+ " Area: " + super.getArea();
 	}
 }
