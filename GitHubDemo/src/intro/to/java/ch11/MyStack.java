@@ -35,6 +35,7 @@ public class MyStack implements Cloneable {
 		return newList;
 	}
 	
+	@Override
 	public Object clone() throws CloneNotSupportedException {
 		MyStack myStackClone = (MyStack)super.clone();
 		myStackClone.list = copyList();
