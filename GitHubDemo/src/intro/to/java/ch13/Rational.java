@@ -2,8 +2,7 @@ package intro.to.java.ch13;
 
 public class Rational extends Number implements Comparable<Rational> {
 	// Data fields for numerator and denominator
-	private long numerator = 0;
-	private long denominator = 1;
+	private long[] r = new long[2];
 	
 	/** Construct a rational with default properties */
 	public Rational() {
@@ -13,8 +12,8 @@ public class Rational extends Number implements Comparable<Rational> {
 	/** Construct a rational with specified numerator and denominator */
 	public Rational(long numerator, long denominator) {
 		long gcd = gcd(numerator, denominator);
-		this.numerator = ((denominator > 0) ? 1 : -1) * numerator / gcd;
-		this.denominator = Math.abs(denominator) / gcd;
+		r[0] = ((denominator > 0) ? 1 : -1) * numerator / gcd;
+		r[1] = Math.abs(denominator) / gcd;
 	}
 	
 	/** Find GCD of two numbers */
@@ -34,50 +33,50 @@ public class Rational extends Number implements Comparable<Rational> {
 	
 	/** Return numerator */
 	public long getNumerator() {
-		return numerator;
+		return r[0];
 	}
 	
 	/** Return denominator */
 	public long getDenominator() {
-		return denominator;
+		return r[1];
 	}
 	
 	/** Add a rational number to this rational */
 	public Rational add(Rational secondRational) {
-		long n = numerator * secondRational.getDenominator()
-				+ denominator * secondRational.getNumerator();
-		long d = denominator * secondRational.getDenominator();
+		long n = r[0] * secondRational.getDenominator()
+				+ r[1] * secondRational.getNumerator();
+		long d = r[1] * secondRational.getDenominator();
 		return new Rational(n, d);
 	}
 	
 	/** Subtract a rational number from this rational */
 	public Rational subtract(Rational secondRational) {
-		long n = numerator * secondRational.getDenominator()
-				- denominator * secondRational.getNumerator();
-		long d = denominator * secondRational.getDenominator();
+		long n = r[0] * secondRational.getDenominator()
+				- r[1] * secondRational.getNumerator();
+		long d = r[1] * secondRational.getDenominator();
 		return new Rational(n, d);
 	}
 	
 	/** Multiply a rational number by this rational */
 	public Rational multiply(Rational secondRational) {
-		long n = numerator * secondRational.getNumerator();
-		long d = denominator * secondRational.getDenominator();
+		long n = r[0] * secondRational.getNumerator();
+		long d = r[1] * secondRational.getDenominator();
 		return new Rational(n, d);
 	}
 	
 	/** Divide a rational number by this rational */
 	public Rational divide(Rational secondRational) {
-		long n = numerator * secondRational.getDenominator();
-		long d = denominator * secondRational.getNumerator();
+		long n = r[0] * secondRational.getDenominator();
+		long d = r[1] * secondRational.getNumerator();
 		return new Rational(n, d);
 	}
 	
 	@Override
 	public String toString() {
-		if (denominator == 1) {
-			return numerator + "";
+		if (r[1] == 1) {
+			return r[0] + "";
 		} else {
-			return numerator + "/" + denominator;
+			return r[0] + "/" + r[1];
 		}
 	}
 	
@@ -102,7 +101,7 @@ public class Rational extends Number implements Comparable<Rational> {
 	
 	@Override
 	public double doubleValue() {
-		return numerator * 1.0 / denominator;
+		return r[0] * 1.0 / r[1];
 	}
 	
 	@Override
