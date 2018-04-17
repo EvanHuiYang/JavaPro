@@ -3,6 +3,14 @@ package intro.to.java.ch12;
 import java.util.Scanner;
 
 public class QuotientWithException {
+	public static int quotient(int number1, int number2) {
+		if (number2 == 0) {
+			throw new ArithmeticException("Divisor cannot be zero");
+		}
+		
+		return number1 / number2;
+	}
+	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
@@ -17,16 +25,9 @@ public class QuotientWithException {
 		} catch (ArithmeticException e) {
 			System.out.println("Exception: an integer "
 					+ "cannot be divided by zero.");
+		} finally {
+			System.out.println("Execution continues ...");
+			input.close();
 		}
-		
-		input.close();
-	}
-	
-	public static int quotient(int number1, int number2) {
-		if (number2 == 0) {
-			throw new ArithmeticException("Divisor cannot be zero");
-		}
-		
-		return number1 / number2;
 	}
 }
